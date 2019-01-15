@@ -17,33 +17,33 @@ let createBoard = function () {
       randomIndexes.push(randomIndex);
     }
   }
-  newBoard = [cardsArray[randomIndexes[0]], cardsArray[randomIndexes[1]],
-    cardsArray[randomIndexes[2]], cardsArray[randomIndexes[0]]];
+  newBoard = [cardsArray[randomIndexes[0]],
+              cardsArray[randomIndexes[1]],
+              cardsArray[randomIndexes[2]],
+              cardsArray[randomIndexes[3]]];
 }
-
-console.log(newBoard);
 createBoard();
+
+let choices = [];
+let count = 0;
 
 let addListeners = function () {
   for (var i = 0; i < 4; i++) {
     let element = document.getElementById(i.toString());
     element.onclick = function () {
-     element.src = newBoard[element.id].cardImage;
+    count++;
+    element.src = newBoard[element.id].cardImage;
+    choices.push(newBoard[element.id].rank);
+    if (count === 2) {
+      setTimeout(findMatch, 100);
+     }
     }
   }
 }
-
 addListeners();
-console.log(cardsArray, '*** cardsArray');
-let choicesArray = [];
-
-let flipCard = function (index) {
-  choicesArray.push(cardsArray[index]);
-  console.log("User flipped " + cardsArray[index].rank);
-}
 
 let findMatch = function () {
-   if (choiceArray[0].rank === choicesArray[1].rank) {
+   if (choices[0] === choices[1]) {
      alert('You Found a Match!!!');
    } else {
      alert('It Was Not a Match!!!');

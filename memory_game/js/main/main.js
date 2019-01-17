@@ -20,7 +20,8 @@ let createBoard = function () {
   newBoard = [cardsArray[randomIndexes[0]],
               cardsArray[randomIndexes[1]],
               cardsArray[randomIndexes[2]],
-              cardsArray[randomIndexes[3]]];
+              cardsArray[randomIndexes[3]]
+  ];
 }
 createBoard();
 
